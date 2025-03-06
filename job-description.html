@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Description Input</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      header {
+        background-color: #2c3e50;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+      section {
+        margin: 20px;
+      }
+      .section-title {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+      textarea {
+        width: 100%;
+        height: 150px;
+      }
+      button {
+        padding: 10px;
+        background-color: #2c3e50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #34495e;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Job Description for Cover Letter</h1>
+    </header>
+
+    <section>
+      <textarea
+        id="jobDescription"
+        placeholder="Paste the job description here..."
+      ></textarea
+      ><br /><br />
+      <button onclick="generateCoverLetter()">Generate Cover Letter</button>
+    </section>
+
+    <section id="coverLetterSection" style="display: none">
+      <h2 class="section-title">Generated Cover Letter</h2>
+      <p id="coverLetterText">Your cover letter will appear here.</p>
+      <button onclick="saveCoverLetter()">Save Cover Letter</button>
+    </section>
+
+    <script>
+      function generateCoverLetter() {
+        let jobDescription = document.getElementById("jobDescription").value;
+
+        if (jobDescription) {
+          document.getElementById("coverLetterSection").style.display = "block";
+          document.getElementById(
+            "coverLetterText"
+          ).innerText = `Dear Hiring Manager,
+
+I am writing to express my interest in the position you advertised. With my extensive experience, particularly in managing materials, labor, and invoices, I believe I can bring great value to your team. My background in construction administration, coupled with a strong focus on achieving goals, aligns perfectly with the qualifications you are seeking.
+
+I am confident in my ability to contribute to your team, leveraging my skills in inventory management, clerical support, and customer service. I am eager to bring my expertise to your organization and support its ongoing success.
+
+I look forward to discussing how my experience and skills align with your needs.
+
+Sincerely,
+Siviwe Kibido`;
+        } else {
+          alert("Please paste a job description to generate the cover letter.");
+        }
+      }
+
+      function saveCoverLetter() {
+        const coverLetter =
+          document.getElementById("coverLetterText").innerText;
+        // Saving the cover letter or sending it to your email can be done here
+        alert("Cover letter saved!");
+      }
+    </script>
+  </body>
+</html>
